@@ -48,6 +48,8 @@ class AuthManager {
     
     func signInWithEmailPassword(email: String, password: String) async throws {
         session = try await supabase.auth.signIn(email: email, password: password)
+        
+        try await fetchUserProfile()
     }
     
     func fetchUserProfile() async throws {

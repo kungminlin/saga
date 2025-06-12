@@ -13,7 +13,11 @@ import Foundation
     func fetchJournalEntries() {
         Task {
             do {
-                entries = try await supabase.from("journal_entries").select().execute().value
+                entries = try await supabase.from("journal_entries")
+                    .select()
+                    .order("updated_at", ascending: false)
+                    .execute()
+                    .value
                 print("done fetching entries", entries)
             } catch let error {
                 print(error)

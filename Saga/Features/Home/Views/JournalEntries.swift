@@ -8,29 +8,70 @@
 import SwiftUI
 
 struct JournalEntries: View {
-    @State private var viewModel = JournalViewModel()
+    let viewModel: JournalViewModel
     
     var body: some View {
-        List {
-            ForEach(viewModel.entries) { entry in
-                ZStack {
-                    JournalEntryCard(entry: entry)
-                    NavigationLink(destination: JournalEntryView(entry: entry)) {
-                        EmptyView()
-                    }.buttonStyle(PlainButtonStyle())
+        VStack(spacing: 16) {
+            if viewModel.entries.isEmpty {
+                EmptyStateView()
+            } else {
+                ForEach(viewModel.entries) { entry in
+                    ZStack {
+                        JournalEntryCard(entry: entry)
+                        NavigationLink(destination: JournalEntryView(entry: entry)) {
+                            EmptyView()
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                    }
                 }
-                .listRowSeparator(.hidden)
             }
         }
-        .listStyle(.plain)
-        .listRowSpacing(12)
+        .padding(.horizontal)
         .refreshable {
             viewModel.fetchJournalEntries()
         }
-        
         .onAppear {
             viewModel.fetchJournalEntries()
         }
+    }
+}
+
+struct EmptyStateView: View {
+    var body: some View {
+        VStack(spacing: 20) {
+            Image(systemName: "book.closed")
+                .font(.system(size: 60))
+                .foregroundStyle(.secondary)
+            
+            VStack(spacing: 8) {
+                Text("No Entries Yet")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                
+                Text("Start your journaling journey by creating your first entry")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+            }
+            
+            Button {
+                // This will be handled by the parent view
+            } label: {
+                Label("Create Entry", systemImage: "plus")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.accentColor)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+            }
+            .padding(.top, 8)
+        }
+        .padding(32)
+        .frame(maxWidth: .infinity)
+        .background(.ultraThinMaterial)
+        .clipShape(RoundedRectangle(cornerRadius: 20))
+        .padding(.horizontal)
     }
 }
 
@@ -64,5 +105,9 @@ struct JournalEntryPreview: View {
 }
 
 #Preview {
-    JournalEntryPreview()
+    ScrollView {
+        VStack {
+            JournalEntries(viewModel: JournalViewModel())
+        }
+    }
 }
