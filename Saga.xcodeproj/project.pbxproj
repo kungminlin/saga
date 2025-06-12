@@ -40,9 +40,22 @@
 		DD9B71142DFA6A510055324D /* SagaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SagaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		DD9B72742DFAB2C10055324D /* Exceptions for "Saga" folder in "Saga" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = DD9B70F92DFA6A500055324D /* Saga */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DD9B70FC2DFA6A500055324D /* Saga */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DD9B72742DFAB2C10055324D /* Exceptions for "Saga" folder in "Saga" target */,
+			);
 			path = Saga;
 			sourceTree = "<group>";
 		};
@@ -430,8 +443,9 @@
 				DEVELOPMENT_TEAM = 3XC45YN296;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Saga/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Saga;
-				INFOPLIST_KEY_NSAppleMusicUsageDescription = "This app accesses and saves media in your photo library.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app accesses media in your photo library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -461,8 +475,9 @@
 				DEVELOPMENT_TEAM = 3XC45YN296;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Saga/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Saga;
-				INFOPLIST_KEY_NSAppleMusicUsageDescription = "This app accesses and saves media in your photo library.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app accesses media in your photo library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
