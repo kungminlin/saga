@@ -31,6 +31,7 @@ extension OnboardingView {
                         display_name: name,
                         profile_image_url: nil,
                         bio: nil,
+                        updated_at: nil,
                         created_at: nil
                     ))
                     

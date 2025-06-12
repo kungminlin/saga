@@ -13,5 +13,6 @@ struct UserProfile: Codable, Identifiable {
     let display_name: String
     let profile_image_url: String?
     let bio: String?
+    let updated_at: Date?
     let created_at: Date?
 }
