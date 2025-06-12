@@ -8,4 +8,8 @@
 import Foundation
 import Supabase
 
-let supabase = SupabaseClient(supabaseURL: URL(string: "")!, supabaseKey: "")
+let supabaseURL = Bundle.main.object(forInfoDictionaryKey: "SupabaseURL") as! String
+
+let supabaseKey = Bundle.main.object(forInfoDictionaryKey: "SupabaseKey") as! String
+
+let supabase = SupabaseClient(supabaseURL: URL(string: supabaseURL)!, supabaseKey: supabaseKey)

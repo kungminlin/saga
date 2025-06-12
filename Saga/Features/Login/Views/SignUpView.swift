@@ -76,7 +76,7 @@ struct SignUpView: View {
                 LoginView()
             } label: {
                 Text("Already have an account?")
-                Button { } label: { Text("Log in").fontWeight(.semibold) }
+                Text("Log in").fontWeight(.semibold)
             }
             
             Spacer()
