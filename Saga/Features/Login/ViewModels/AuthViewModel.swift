@@ -45,6 +45,20 @@ import Foundation
             self.error = nil
             
             do {
+                try await authManager.signInWithEmailPassword(email: email, password: password)
+                
+                if authManager.profile == nil {
+                    self.requireOnboarding = true
+                } else {
+                    self.isAuthenticated = true
+                }
+                
+                return
+            } catch let error {
+                print(error)
+            }
+            
+            do {
                 try await authManager.signUpWithEmailPassword(email: email, password: password)
                 
                 self.requireConfirmation = true
